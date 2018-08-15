@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Backs up current vim configuration file if it exists, and replaces it with
+# a symbolic link to vimrc in this folder in order to simplify git tracking.
+
 INSTALL_DIR=${1:-$HOME}
 
 exit_msg=0
