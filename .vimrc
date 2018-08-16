@@ -1,11 +1,13 @@
 
 set number
-
 syntax enable
 
-" Highlight character 81 in line which exceeds 80 characters.
+" ----------------------------- HIGHLIGHTING -----------------------------------
+
+" Highlight character 81 (except when it's newline symbol) in line which exceeds
+" 80 characters.
 highlight ColumnColor ctermbg=Magenta
-call matchadd('ColumnColor', '\%81v', 100)
+call matchadd('ColumnColor', '\%81v[^\n]', 100)
 
 " Highlight all search results.
 set hlsearch
@@ -32,4 +34,22 @@ function! HLNext (blinktime)
         exec 'sleep ' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
     endfor
 endfunction
+
+" ------------------------------- FILE BROWSING --------------------------------
+
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files for tab complete
+set wildmenu
+
+" netrw configuration
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_winsize=25
+
+
+command! MakeTags !ctags -R .
 
