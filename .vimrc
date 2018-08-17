@@ -1,7 +1,3 @@
-
-set number
-syntax enable
-
 " ----------------------------- HIGHLIGHTING -----------------------------------
 
 " Highlight character 81 (except when it's newline symbol) in line which exceeds
@@ -50,6 +46,16 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_winsize=25
 
+" ----------------------------------- OTHER ------------------------------------
 
 command! MakeTags !ctags -R .
+
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+
+colorscheme gruvbox
+
+set number
+syntax enable
+
 
